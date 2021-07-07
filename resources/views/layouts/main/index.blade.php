@@ -74,17 +74,17 @@
       </div>
     </section>
 		
-		<section class="ftco-casadepaz ftco-section img" style="background-image: url(assets_main/images/hops_bg.jpg); height: 100%">
-			<div class="overlay" style="opacity: .25"></div>
+	<section class="ftco-casadepaz ftco-section img" style="background-image: url(assets_main/images/hops_bg.jpg); height: 100%">
+		<div class="overlay" style="opacity: .25"></div>
     	<div class="container">
     		<div class="row d-md-flex justify-content-end">
     			<div class="col-md-6 half p-3 p-md-5 ftco-animate heading-section">
-						<img src="assets_main/images/cdp_img.png">
+					<img src="assets_main/images/cdp_img.png">
     				<h2 class="mb-4 text-white">Visite una Casa de Paz esta semana</h2>
-						<p class="text-white">
-							Una Casa de Paz (CPz) es una reunión semanal en diferentes hogares por toda la ciudad de Chicago. Allí usted podrá conocer gente de su vecindario y encontrar a Dios, escuchar un mensaje poderoso y orar con otros por diferentes necesidades.
-						</p>
-						<a href="location.php" target="_blank" class="btn btn-primary py-3 px-4">Encuentre su CdPz</a>
+					<p class="text-white">
+						Una Casa de Paz (CPz) es una reunión semanal en diferentes hogares por toda la ciudad de Chicago. Allí usted podrá conocer gente de su vecindario y encontrar a Dios, escuchar un mensaje poderoso y orar con otros por diferentes necesidades.
+					</p>
+					<a href="location.php" target="_blank" class="btn btn-primary py-3 px-4">Encuentre su CdPz</a>
     			</div>
     		</div>
     	</div>
