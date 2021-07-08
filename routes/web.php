@@ -34,3 +34,35 @@ Route::get('/nuestra-cobertura', function () {
 Route::get('/sembrar', function () {
     return view('layouts.main.sembrar');
 });
+// 5. Hops
+Route::get('/hops', function () {
+    return view('layouts.main.hops');
+});
+// 6. Location
+Route::get('/location', function () {
+    return view('layouts.main.location');
+});
+// 7. Solicitiar Oración
+Route::get('/solicitar-oracion', function () {
+    return view('layouts.main.solicitar-oracion');
+});
+// 8. Live
+Route::get('/live', function () {
+    return view('layouts.main.live');
+});
+// 9. Planee Visita
+Route::get('/planee-visita', function () {
+    return view('layouts.main.planee-visita');
+});
+// 10. Crezca Aqui
+Route::get('/crezca-aqui', function () {
+    return view('layouts.main.crezca-aqui');
+});
+// 11. Comience Aqui
+Route::get('/comience-aqui', function () {
+    return view('layouts.main.comience-aqui');
+});
+// 12. Empiece Aqui
+Route::get('/empiece-aqui', function () {
+    return view('layouts.main.empiece-aqui');
+});

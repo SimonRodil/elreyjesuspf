@@ -89,7 +89,5 @@
 @endsection
 
 @section('scripts')
-<script>
-    $('.practice-area').parent().addClass('col-sm-12');
-</script>
+<script src="{{ asset('assets_main/js/sembrar.js') }}"></script>
 @endsection
