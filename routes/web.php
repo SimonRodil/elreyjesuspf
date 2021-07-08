@@ -26,7 +26,11 @@ Route::get('/index', function () {
 Route::get('/about-us', function () {
     return view('layouts.main.about-us');
 });
-// 2. Nuestra Cobertura
+// 3. Nuestra Cobertura
 Route::get('/nuestra-cobertura', function () {
     return view('layouts.main.nuestra-cobertura');
+});
+// 4. Sembrar
+Route::get('/sembrar', function () {
+    return view('layouts.main.sembrar');
 });
