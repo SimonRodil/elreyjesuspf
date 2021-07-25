@@ -66,3 +66,8 @@ Route::get('/comience-aqui', function () {
 Route::get('/empiece-aqui', function () {
     return view('layouts.main.empiece-aqui');
 });
+
+Auth::routes();
+
+// Dashboard Routes
+Route::get('/dashboard/index', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
