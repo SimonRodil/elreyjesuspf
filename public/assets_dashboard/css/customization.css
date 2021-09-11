@@ -1,0 +1,11 @@
+#div_header_container 
+{ 
+    flex-direction: row-reverse
+}
+
+@media (max-width: 767px) {
+    #div_header_container 
+    { 
+        flex-direction: row
+    }
+}
