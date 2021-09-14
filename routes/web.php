@@ -68,6 +68,13 @@ Route::get('/empiece-aqui', function () {
 });
 
 Auth::routes();
+// Logout
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 // Dashboard Routes
-Route::get('/dashboard/index', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+# 1. Inicio
+Route::get('/dashboard/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+# 2. Perfil
+Route::get('/dashboard/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');

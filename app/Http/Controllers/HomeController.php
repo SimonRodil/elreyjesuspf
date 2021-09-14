@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('layouts.dashboard.index');
     }
+
+    public function profile()
+    {
+        return view('layouts.dashboard.profile');
+    }
 }
