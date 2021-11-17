@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Blog extends Migration
+class CreateNetworksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class Blog extends Migration
      */
     public function up()
     {
-        Schema::create('blog', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title')->nullable();
-            $table->string('image_header')->nullable();
-            $table->text('content')->nullable();
+        Schema::create('networks', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class Blog extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('networks');
     }
 }
