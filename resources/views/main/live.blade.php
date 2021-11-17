@@ -1,4 +1,4 @@
-@extends('layouts.main.app')
+@extends('main.app')
 
 @section('content')
     <section class="hero-wrap hero-wrap-3" style="background-image: url('assets_main/vide/poster.jpg');" data-stellar-background-ratio="0.5">

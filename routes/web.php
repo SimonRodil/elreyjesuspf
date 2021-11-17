@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainIndexController;
+use App\Http\Controllers\NetworkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,54 +18,54 @@ use App\Http\Controllers\MainIndexController;
 //-- Main Website
 // 1. Index
 Route::get('/', function () {
-    return view('layouts.main.index');
+    return view('main.index');
 });
 Route::get('/index', function () {
-    return view('layouts.main.index');
+    return view('main.index');
 });
 // 2. Sobre Nosotros
 Route::get('/about-us', function () {
-    return view('layouts.main.about-us');
+    return view('main.about-us');
 });
 // 3. Nuestra Cobertura
 Route::get('/nuestra-cobertura', function () {
-    return view('layouts.main.nuestra-cobertura');
+    return view('main.nuestra-cobertura');
 });
 // 4. Sembrar
 Route::get('/sembrar', function () {
-    return view('layouts.main.sembrar');
+    return view('main.sembrar');
 });
 // 5. Hops
 Route::get('/hops', function () {
-    return view('layouts.main.hops');
+    return view('main.hops');
 });
 // 6. Location
 Route::get('/location', function () {
-    return view('layouts.main.location');
+    return view('main.location');
 });
 // 7. Solicitiar Oración
 Route::get('/solicitar-oracion', function () {
-    return view('layouts.main.solicitar-oracion');
+    return view('main.solicitar-oracion');
 });
 // 8. Live
 Route::get('/live', function () {
-    return view('layouts.main.live');
+    return view('main.live');
 });
 // 9. Planee Visita
 Route::get('/planee-visita', function () {
-    return view('layouts.main.planee-visita');
+    return view('main.planee-visita');
 });
 // 10. Crezca Aqui
 Route::get('/crezca-aqui', function () {
-    return view('layouts.main.crezca-aqui');
+    return view('main.crezca-aqui');
 });
 // 11. Comience Aqui
 Route::get('/comience-aqui', function () {
-    return view('layouts.main.comience-aqui');
+    return view('main.comience-aqui');
 });
 // 12. Empiece Aqui
 Route::get('/empiece-aqui', function () {
-    return view('layouts.main.empiece-aqui');
+    return view('main.empiece-aqui');
 });
 
 Auth::routes();
@@ -78,3 +79,6 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 # 2. Perfil
 Route::get('/dashboard/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+
+# 3. Networks
+Route::get('/dashboard/networks', [NetworkController::class, 'index'])->name('network.index');

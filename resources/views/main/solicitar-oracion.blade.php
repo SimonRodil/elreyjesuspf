@@ -1,4 +1,4 @@
-@extends('layouts.main.app')
+@extends('main.app')
 
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('http://content.kingjesus.org/landings/wp-content/uploads/sites/9/2017/09/imgpsh_fullsize-1-1024x683.jpeg');" data-stellar-background-ratio="0.5">
