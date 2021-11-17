@@ -15,7 +15,8 @@ class NetworkController extends Controller
     public function index()
     {
         //
-        return view('dashboard.network.index');
+        $networks = Network::all();
+        return view('dashboard.network.index', compact('networks'));
     }
 
     /**
