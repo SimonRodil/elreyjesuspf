@@ -1,4 +1,8 @@
 @extends('layouts.dashboard.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets_dashboard/css/datatable.customization.css') }}">
+@endsection
 @section('content')
 
         <div class="container px-6 mx-auto grid">
@@ -6,7 +10,7 @@
               Lista de Redes
             </h2>
             
-            <table class="w-full whitespace-no-wrap border border-gray-50 py-3">
+            <table class="w-full whitespace-no-wrap border border-gray-50 *py-3 my-3 stripe">
               <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                   <th class="px-4 py-3">ID</th>
@@ -74,4 +78,8 @@
             </table>
 
           </div>
+@endsection
+@section('scripts')
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>$('table').DataTable();</script>
 @endsection

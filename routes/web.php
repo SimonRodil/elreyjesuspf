@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainIndexController;
 use App\Http\Controllers\NetworkController;
@@ -74,11 +75,11 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 // Dashboard Routes
 # 1. Inicio
-Route::get('/dashboard/index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard/index', [HomeController::class, 'index'])->name('index');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 # 2. Perfil
-Route::get('/dashboard/profile', [App\Http\Controllers\HomeController::class, 'profile'])->name('profile');
+Route::get('/dashboard/profile', [HomeController::class, 'profile'])->name('profile');
 
 # 3. Networks
 Route::get('/dashboard/networks', [NetworkController::class, 'index'])->name('network.index');

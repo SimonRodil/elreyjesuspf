@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="{{ asset('assets_dashboard/css/tailwind.output.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets_dashboard/css/customization.css') }}" />
+    @yield('styles')
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -48,5 +49,6 @@
         </main>
       </div>
     </div>
+    @yield('scripts')
   </body>
 </html>

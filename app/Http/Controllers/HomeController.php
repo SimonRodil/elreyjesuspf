@@ -23,11 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts.dashboard.index');
+        return view('dashboard.index');
     }
 
     public function profile()
     {
-        return view('layouts.dashboard.profile');
+        return view('dashboard.profile');
     }
 }
