@@ -34,7 +34,7 @@
                   >
                     Approved
                   </span> -->
-                  1
+                  {{ empty($network->mentor_id) ? '-' : $network->mentor->name }}
                 </td>
                 <td class="px-4 py-3">
                   <div class="flex items-center space-x-4 text-sm">
