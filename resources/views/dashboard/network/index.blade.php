@@ -81,5 +81,7 @@
 @endsection
 @section('scripts')
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script>$('table').DataTable();</script>
+    <script>$('table').DataTable({
+      "language": { url: '/js/datatable_es_es.json' }
+    });</script>
 @endsection
