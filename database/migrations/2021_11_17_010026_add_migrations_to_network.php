@@ -16,8 +16,8 @@ class AddMigrationsToNetwork extends Migration
         Schema::table('networks', function (Blueprint $table) {
             //
             $table->foreignId('mentor_id')->after('name')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('network_father_id')->after('mentor_id')->nullable();
-            $table->foreign('network_father_id')->references('id')->on('networks')->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('network_father')->after('mentor_id')->nullable();
+            $table->foreign('network_father')->references('id')->on('networks')->nullable()->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

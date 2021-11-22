@@ -83,3 +83,5 @@ Route::get('/dashboard/profile', [HomeController::class, 'profile'])->name('prof
 
 # 3. Networks
 Route::get('/dashboard/networks', [NetworkController::class, 'index'])->name('network.index');
+Route::get('/dashboard/networks/{network}/update', [NetworkController::class, 'edit'])->name('network.edit');
+Route::put('/dashboard/networks/{network}/update', [NetworkController::class, 'update'])->name('network.update');

@@ -15,4 +15,10 @@ class Network extends Model
     {
         return $this->belongsTo(Mentor::class);
     }
+    
+    protected $fillable = [
+        'name',
+        'mentor_id',
+        'network_father',
+    ];
 }

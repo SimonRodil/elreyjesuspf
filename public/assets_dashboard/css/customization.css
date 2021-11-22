@@ -9,3 +9,19 @@
         flex-direction: row
     }
 }
+
+
+/**
+FORMS
+**/
+
+form input.error {
+    border-color: red;
+    border-width: 1px;
+}
+
+form label.error {
+    margin-top: 2.5px;
+    color: red;
+    font-size: 14px;
+}

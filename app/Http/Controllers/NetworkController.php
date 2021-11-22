@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mentor;
 use App\Models\Network;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 
 class NetworkController extends Controller
 {
@@ -64,6 +67,9 @@ class NetworkController extends Controller
     public function edit(Network $network)
     {
         //
+        $mentors = Mentor::all();
+        $networks = Network::all();
+        return view('dashboard.network.update', compact(['network', 'mentors', 'networks']));
     }
 
     /**
@@ -75,7 +81,18 @@ class NetworkController extends Controller
      */
     public function update(Request $request, Network $network)
     {
+
         //
+        $validator = $request->validate([
+            "name" => "required",
+            "mentor_id" => ['numeric', 'nullable'],
+            "network_father" => ['numeric', 'nullable']
+        ]);
+
+        $network->update($validator);
+
+        return response()->json(['status' => 'success'], 200);
+
     }
 
     /**

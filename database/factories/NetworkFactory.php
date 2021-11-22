@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Mentor;
 use App\Models\Network;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,6 +25,7 @@ class NetworkFactory extends Factory
         return [
             //
             'name' => $this->faker->country(),
+            'mentor_id' => Mentor::factory()
         ];
     }
 }
