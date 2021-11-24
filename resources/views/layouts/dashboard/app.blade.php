@@ -49,14 +49,14 @@
   </head>
   <body>
     <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
-      @include('layouts.dashboard.includes.first_aside')
+      @include('layouts.dashboard.includes.main_sidebar')
       @include('layouts.dashboard.includes.mobile_sidebar')
       <div class="flex flex-col flex-1 w-full">
         <!-- Inicio del Header -->
         @include('layouts.dashboard.includes.header')
         <!-- Fin del Menú -->
 
-        <main class="h-full overflow-y-auto">
+        <main class="h-full overflow-y-auto" style="padding-bottom: 20px">
             @yield('content')
         </main>
       </div>
