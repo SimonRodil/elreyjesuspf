@@ -72,6 +72,11 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataT
         top: 11px;
     }
 }
+@media screen and (max-width: 560px) {
+    .dataTables_wrapper .dataTables_length {
+        top: 0;
+    }
+}
 
 /* Responsive searcher */
 @media screen and (min-width: 560px) {
