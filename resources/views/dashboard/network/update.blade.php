@@ -21,7 +21,7 @@
         <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
             Actualizar: {{$network->name}}
         </h2>
-        <form method="POST" action="/dashboard/networks/{{$network->id}}/update" enctype="multipart/form-data" id="update">
+        <form method="POST" class="submitter" action="/dashboard/networks/{{$network->id}}/update" enctype="multipart/form-data" id="update">
             @method('PUT')
             <div class="grid md:grid-cols-3 gap-6 px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <label class="block text-sm">
@@ -51,7 +51,7 @@
         </form>
         <div class="flex flex-col flex-1 w-max">
             <div>
-                <button form="update" class="btn-icon-text flex justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-purple" style="">
+                <button form="update" type="submit" class="btn-icon-text flex justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg active:bg-green-600 hover:bg-green-700 focus:outline-none focus:shadow-outline-green">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
@@ -62,46 +62,4 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function(){
-            $('select[value-selected]').each(function() { 
-                $val = $(this).attr('value-selected');
-                if($val != '') {
-                    $(this).val($val);
-                }
-            });
-
-            $('form').submit(function(e){
-                
-                e.preventDefault();
-                var $form = $(this);
-
-                $.ajax({
-                    type: "POST",
-                    url: $form.attr('action'),
-                    data: $form.serialize(),
-                    dataType: "json",
-                    success: function (response) {
-                        Swal.fire(
-                            'Enhorabuena!',
-                            'Acción realizada exitsoamente!',
-                            'success'
-                        );
-                        return;
-                    },
-                    error: function(response) {
-                        // Mostrar los errores.
-                        $form.validate().showErrors(response.responseJSON.errors);
-
-                        Swal.fire(
-                            'Error!',
-                            'Algo ocurrió durante la consulta!',
-                            'error'
-                        );
-                        return;
-                    }
-                });
-            });
-        });
-    </script>
 @endsection

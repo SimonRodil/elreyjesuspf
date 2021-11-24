@@ -21,7 +21,12 @@ form input.error {
 }
 
 form label.error {
-    margin-top: 2.5px;
+    margin-top: 3.5px;
     color: red;
     font-size: 14px;
+}
+
+form input.error:focus {
+    box-shadow: 0 0 0 3px #ff00004b;
+    border-color: red;
 }
