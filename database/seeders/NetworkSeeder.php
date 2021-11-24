@@ -15,6 +15,6 @@ class NetworkSeeder extends Seeder
     public function run()
     {
         //
-        Network::factory()->count(7)->create();
+        Network::factory()->count(15)->create();
     }
 }

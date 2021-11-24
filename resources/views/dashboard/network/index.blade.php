@@ -4,12 +4,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_dashboard/css/datatable.customization.css') }}">
 @endsection
 @section('content')
-
         <div class="container px-6 mx-auto grid">
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
               Lista de Redes
             </h2>
-            
             <table class="w-full whitespace-no-wrap border border-gray-50 *py-3 my-3 stripe">
               <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
