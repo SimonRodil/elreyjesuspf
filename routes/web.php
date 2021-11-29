@@ -74,6 +74,7 @@ Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 // Dashboard Routes
+# x. Notus
 # 1. Inicio
 Route::get('/dashboard/index', [HomeController::class, 'index'])->name('index');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');

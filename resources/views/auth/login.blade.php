@@ -1,107 +1,396 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="es">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ERJPF :: Panel de Control</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="{{ asset('assets_notus/img/favicon.ico') }}" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="{{ asset('assets_notus/img/apple-icon.png') }}"
     />
-    <link rel="stylesheet" href="assets_dashboard/css/tailwind.output.css" />
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
-    <script src="assets_dashboard/js/init-alpine.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets_notus/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}"
+    />
+    <link rel="stylesheet" href="{{ asset('assets_notus/styles/tailwind.css') }}" />
+    <title>Login | Notus JS by Creative Tim</title>
   </head>
-  <body>
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
+  <body class="text-blueGray-700 antialiased">
+    <nav
+      class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
+    >
       <div
-        class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+        class="container px-4 mx-auto flex flex-wrap items-center justify-between"
       >
-        <div class="flex flex-col overflow-y-auto md:flex-row">
-          <div class="h-32 md:h-auto md:w-1/2">
-            <img
-              aria-hidden="true"
-              class="object-cover w-full h-full dark:hidden"
-              src="assets_dashboard/img/login-office.jpeg"
-              alt="Office"
-            />
-            <img
-              aria-hidden="true"
-              class="hidden object-cover w-full h-full dark:block"
-              src="assets_dashboard/img/login-office-dark.jpeg"
-              alt="Office"
-            />
-          </div>
-          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-            <div class="w-full">    
-                <form method="POST" action="{{ route('login') }}">
+        <div
+          class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+        >
+          <a
+            class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+            href="../../index.html"
+            >Notus JS</a
+          ><button
+            class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+            type="button"
+            onclick="toggleNavbar('example-collapse-navbar')"
+          >
+            <i class="text-white fas fa-bars"></i>
+          </button>
+        </div>
+        <div
+          class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none hidden"
+          id="example-collapse-navbar"
+        >
+          <ul class="flex flex-col lg:flex-row list-none mr-auto">
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus?ref=njs-login"
+                ><i
+                  class="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2"
+                ></i>
+                Docs</a
+              >
+            </li>
+          </ul>
+          <ul
+            class="flex flex-col lg:flex-row list-none lg:ml-auto items-center"
+          >
+            <li class="inline-block relative">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="#pablo"
+                onclick="openDropdown(event,'demo-pages-dropdown')"
+              >
+                Demo Pages
+              </a>
+              <div
+                class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48"
+                id="demo-pages-dropdown"
+              >
+                <span
+                  class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+                >
+                  Admin Layout
+                </span>
+                <a
+                  href="../admin/dashboard.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Dashboard
+                </a>
+                <a
+                  href="../admin/settings.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Settings
+                </a>
+                <a
+                  href="../admin/tables.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Tables
+                </a>
+                <a
+                  href="../admin/maps.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Maps
+                </a>
+                <div
+                  class="h-0 mx-4 my-2 border border-solid border-blueGray-100"
+                ></div>
+                <span
+                  class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+                >
+                  Auth Layout
+                </span>
+                <a
+                  href="./login.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Login
+                </a>
+                <a
+                  href="./register.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Register
+                </a>
+                <div
+                  class="h-0 mx-4 my-2 border border-solid border-blueGray-100"
+                ></div>
+                <span
+                  class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
+                >
+                  No Layout
+                </span>
+                <a
+                  href="../landing.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Landing
+                </a>
+                <a
+                  href="../profile.html"
+                  class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
+                >
+                  Profile
+                </a>
+              </div>
+            </li>
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F"
+                target="_blank"
+                ><i
+                  class="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg"
+                ></i
+                ><span class="lg:hidden inline-block ml-2">Share</span></a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20JavaScript%20UI%20Kit%20and%20Admin.%20Let%20Notus%20JS%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
+                target="_blank"
+                ><i
+                  class="lg:text-blueGray-200 text-blueGray-400 fab fa-twitter text-lg leading-lg"
+                ></i
+                ><span class="lg:hidden inline-block ml-2">Tweet</span></a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://github.com/creativetimofficial/notus-js?ref=njs-login"
+                target="_blank"
+                ><i
+                  class="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg"
+                ></i
+                ><span class="lg:hidden inline-block ml-2">Star</span></a
+              >
+            </li>
+            <li class="flex items-center">
+              <button
+                class="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                type="button"
+              >
+                <i class="fas fa-arrow-alt-circle-down"></i> Download
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section class="relative w-full h-full py-40 min-h-screen">
+        <div
+          class="absolute top-0 w-full h-full bg-blueGray-800 bg-full bg-no-repeat"
+          style="background-image: url({{ asset('assets_notus/img/register_bg_2.png)') }}"
+        ></div>
+        <div class="container mx-auto px-4 h-full">
+          <div class="flex content-center items-center justify-center h-full">
+            <div class="w-full lg:w-4/12 px-4">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0"
+              >
+                <div class="rounded-t mb-0 px-6 py-6">
+                  <div class="text-center mb-3">
+                    <h6 class="text-blueGray-500 text-sm font-bold">
+                      Sign in with
+                    </h6>
+                  </div>
+                  <div class="btn-wrapper text-center">
+                    <button
+                      class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                      type="button"
+                    >
+                      <img
+                        alt="..."
+                        class="w-5 mr-1"
+                        src="{{ asset('assets_notus/img/github.svg') }}"
+                      />Github</button
+                    ><button
+                      class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+                      type="button"
+                    >
+                      <img
+                        alt="..."
+                        class="w-5 mr-1"
+                        src="{{ asset('assets_notus/img/google.svg') }}"
+                      />Google
+                    </button>
+                  </div>
+                  <hr class="mt-6 border-b-1 border-blueGray-300" />
+                </div>
+                <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                  <div class="text-blueGray-400 text-center mb-3 font-bold">
+                    <small>Or sign in with credentials</small>
+                  </div>
+                  <form method="POST" action="{{ route('login') }}">
                     @csrf
-                <h1
-                    class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
-                >
-                    Login
-                </h1>
-                <label class="block text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">Email</span>
-                    <input type="email" name="email"
-                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    placeholder="example@gmail.com"
-                    />
-                </label>
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        for="grid-password"
+                        >Email</label
+                      ><input
+                        type="email"
+                        name="email"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="Email"
+                      />
+                      @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
 
-                <label class="block mt-4 text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">Contraseña</span>
-                    <input name="password"
-                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                    placeholder="***************"
-                    type="password"
-                    />
-                </label>
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                    <div class="relative w-full mb-3">
+                      <label
+                        class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        for="grid-password"
+                        >Password</label
+                      ><input
+                        type="password"
+                        name="password"
+                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        placeholder="Password"
+                      />
+                      @error('password')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
 
-                <!-- You should use a button here, as the anchor is only used for the example  -->
-                <button type="submit"
-                    class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                    href="../index.html"
-                >
-                    Iniciar Sesion
-                </button>
-
-                @if (Route::has('password.request'))
-                <p class="mt-4">
-                    <a
-                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                    href="{{ route('password.request') }}"
-                    >
-                    Olvidaste la contraseña?
-                    </a>
-                </p>
-                @endif
-                <p class="mt-1">
-                    <a
-                    class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                    href="{{route('register')}}"
-                    >
-                    Crear usuario
-                    </a>
-                </p>
-                </form>
+                    <div>
+                      <label class="inline-flex items-center cursor-pointer"
+                        ><input
+                          id="customCheckLogin"
+                          type="checkbox"
+                          class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                        /><span
+                          class="ml-2 text-sm font-semibold text-blueGray-600"
+                          >Remember me</span
+                        ></label
+                      >
+                    </div>
+                    <div class="text-center mt-6">
+                      <button
+                        class="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                        type="submit"
+                      >
+                        Sign In
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="flex flex-wrap mt-6">
+                <div class="w-1/2">
+                  <a href="#pablo" class="text-blueGray-200"
+                    ><small>Forgot password?</small></a
+                  >
+                </div>
+                <div class="w-1/2 text-right">
+                  <a href="./register.html" class="text-blueGray-200"
+                    ><small>Create new account</small></a
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        <footer class="absolute w-full bottom-0 bg-blueGray-800 pb-6">
+          <div class="container mx-auto px-4">
+            <hr class="mb-6 border-b-1 border-blueGray-600" />
+            <div
+              class="flex flex-wrap items-center md:justify-between justify-center"
+            >
+              <div class="w-full md:w-4/12 px-4">
+                <div
+                  class="text-sm text-white font-semibold py-1 text-center md:text-left"
+                >
+                  Copyright © <span id="get-current-year"></span>
+                  <a
+                    href="https://www.creative-tim.com?ref=njs-login"
+                    class="text-white hover:text-blueGray-300 text-sm font-semibold py-1"
+                    >Creative Tim</a
+                  >
+                </div>
+              </div>
+              <div class="w-full md:w-8/12 px-4">
+                <ul
+                  class="flex flex-wrap list-none md:justify-end justify-center"
+                >
+                  <li>
+                    <a
+                      href="https://www.creative-tim.com?ref=njs-login"
+                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                      >Creative Tim</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.creative-tim.com/presentation?ref=njs-login"
+                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                      >About Us</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="http://blog.creative-tim.com?ref=njs-login"
+                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                      >Blog</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-login"
+                      class="text-white hover:text-blueGray-300 text-sm font-semibold block py-1 px-3"
+                      >MIT License</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
   </body>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+  <script>
+    /* Make dynamic date appear */
+    (function () {
+      if (document.getElementById("get-current-year")) {
+        document.getElementById(
+          "get-current-year"
+        ).innerHTML = new Date().getFullYear();
+      }
+    })();
+    /* Function for opning navbar on mobile */
+    function toggleNavbar(collapseID) {
+      document.getElementById(collapseID).classList.toggle("hidden");
+      document.getElementById(collapseID).classList.toggle("block");
+    }
+    /* Function for dropdowns */
+    function openDropdown(event, dropdownID) {
+      let element = event.target;
+      while (element.nodeName !== "A") {
+        element = element.parentNode;
+      }
+      Popper.createPopper(element, document.getElementById(dropdownID), {
+        placement: "bottom-start",
+      });
+      document.getElementById(dropdownID).classList.toggle("hidden");
+      document.getElementById(dropdownID).classList.toggle("block");
+    }
+  </script>
 </html>
