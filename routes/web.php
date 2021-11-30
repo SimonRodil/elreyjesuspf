@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainIndexController;
 use App\Http\Controllers\NetworkController;
+use App\Http\Controllers\ProfileController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,13 +76,13 @@ Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 // Dashboard Routes
-# x. Notus
 # 1. Inicio
 Route::get('/dashboard/index', [HomeController::class, 'index'])->name('index');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 # 2. Perfil
-Route::get('/dashboard/profile', [HomeController::class, 'profile'])->name('profile');
+Route::get('/dashboard/profile', [ProfileController::class, 'profile'])->name('profile');
+Route::put('/dashboard/profile/{user}', [ProfileController::class, 'update']);
 
 # 3. Networks
 Route::get('/dashboard/networks', [NetworkController::class, 'index'])->name('network.index');

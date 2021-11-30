@@ -14,7 +14,9 @@
         </div>
       </div>
       <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-        <form>
+        <form id="profile" action="/dashboard/profile/{{ Auth::id() }}" method="POST">
+          @csrf
+          @method('PUT')
           <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
             Información de Usuario
           </h6>
@@ -24,7 +26,10 @@
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                   Nombre de Usuario
                 </label>
-                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->username }}">
+                <input name="username" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->username }}">
+                @error('username')
+                    <label>{{ $message }}</label>
+                @enderror
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
@@ -32,7 +37,10 @@
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                   Correo Electrónico
                 </label>
-                <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->email }}">
+                <input name="email" type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->email }}">
+                @error('email')
+                    <label>{{ $message }}</label>
+                @enderror
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
@@ -40,7 +48,10 @@
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                   Nombre
                 </label>
-                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{Auth::user()->name}}">
+                <input name="name" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{Auth::user()->name}}">
+                @error('name')
+                    <label>{{ $message }}</label>
+                @enderror
               </div>
             </div>
             <div class="w-full lg:w-6/12 px-4">
@@ -48,11 +59,19 @@
                 <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                   Apellido
                 </label>
-                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->lastname }}">
+                <input name="lastname" type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="{{ Auth::user()->lastname }}">
+                @error('lastname')
+                    <label>{{ $message }}</label>
+                @enderror
               </div>
             </div>
           </div>
-
+          <div class="w-full px-4 mt-2">
+            <button form="profile" type="sumbit" class="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">Guardar Datos</button>
+          </div>
+        </form>
+        {{-- Hasta acá esta habilitado el form --}}
+          
           <hr class="mt-6 border-b-1 border-blueGray-300">
 
           <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
@@ -110,7 +129,7 @@
               </div>
             </div>
           </div>
-        </form>
+        {{-- </form> --}}
       </div>
     </div>
   </div>
