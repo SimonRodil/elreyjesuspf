@@ -2556,6 +2556,11 @@ select {
   color: rgba(219, 39, 119, var(--tw-text-opacity));
 }
 
+.text-indigo-500 {
+  --tw-text-opacity: 1;
+  color: rgb(91, 84, 233, var(--tw-text-opacity));
+}
+
 .text-indigo-600 {
   --tw-text-opacity: 1;
   color: rgba(79, 70, 229, var(--tw-text-opacity));
@@ -2674,6 +2679,11 @@ select {
 .hover\:text-blueGray-800:hover {
   --tw-text-opacity: 1;
   color: rgba(30, 41, 59, var(--tw-text-opacity));
+}
+
+.hover\:text-indigo-600:hover {
+  --tw-text-opacity: 1;
+  color: rgba(79, 70, 229, var(--tw-bg-opacity));
 }
 
 .uppercase {
