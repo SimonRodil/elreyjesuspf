@@ -34,6 +34,8 @@
     <!-- jQuery Validate -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+
+    @livewireStyles
     
   </head>
   <body class="text-blueGray-700 antialiased">
@@ -317,5 +319,6 @@
     ></script>
     <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script type="text/javascript" src="{{asset('assets_notus/js/main.js')}}"></script>
+    @livewireScripts
   </body>
 </html>
