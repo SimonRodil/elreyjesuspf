@@ -61,7 +61,7 @@
             <li class="inline-block relative">
               <a
                 class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                href="#pablo"
+                href="javascript:,"
                 onclick="openDropdown(event,'demo-pages-dropdown')"
               >
                 Demo Pages
